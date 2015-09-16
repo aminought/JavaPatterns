@@ -1,4 +1,5 @@
-// Самая простая реализация паттерна SingletonSimple, не работает в многопоточной среде
+// РЎР°РјР°СЏ РїСЂРѕСЃС‚Р°СЏ СЂРµР°Р»РёР·Р°С†РёСЏ РїР°С‚С‚РµСЂРЅР° SingletonSimple, РЅРµ СЂР°Р±РѕС‚Р°РµС‚ РІ РјРЅРѕРіРѕРїРѕС‚РѕС‡РЅРѕР№ СЃСЂРµРґРµ
+
 class SingletonSimple {
     private static SingletonSimple instance = null;
     public static SingletonSimple getInstance() {
@@ -9,7 +10,7 @@ class SingletonSimple {
     }
 }
 
-// Самая простая многопоточная реализация
+// РЎР°РјР°СЏ РїСЂРѕСЃС‚Р°СЏ РјРЅРѕРіРѕРїРѕС‚РѕС‡РЅР°СЏ СЂРµР°Р»РёР·Р°С†РёСЏ
 class SingletonSimpleThreadsafe {
     private static SingletonSimpleThreadsafe instance = new SingletonSimpleThreadsafe();
     private SingletonSimpleThreadsafe() {};
@@ -18,7 +19,7 @@ class SingletonSimpleThreadsafe {
     }
 }
 
-// Используется блокировка с двойной проверкой (Double-Checked Locking)
+// РСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ Р±Р»РѕРєРёСЂРѕРІРєР° СЃ РґРІРѕР№РЅРѕР№ РїСЂРѕРІРµСЂРєРѕР№ (Double-Checked Locking)
 class SingletonThreadsafe {
     private static volatile SingletonThreadsafe instance;
     private SingletonThreadsafe() {};
