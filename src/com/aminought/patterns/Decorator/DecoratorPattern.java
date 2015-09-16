@@ -2,9 +2,14 @@
 // Используется интерфейс с методом, который нужно добавить в объект, сам объект, реализующий этот интерфейс
 // и абстрактный класс декоратора, от которого наследуются различные декораторы с конкретным поведением.
 
-public class Decorator {
+package com.aminought.patterns.Decorator;
+
+public class DecoratorPattern {
     public static void main(String[] args) {
-        ADecorator d = new Decorator1(new ConcreteComponent());
+        ConcreteComponent c = new ConcreteComponent();
+        c.do_it();
+        System.out.println();
+        Decorator d = new ConcreteDecorator(new ConcreteComponent());
         d.do_it();
     }
 }
@@ -13,10 +18,17 @@ interface IComponent {
     void do_it();
 }
 
-abstract class ADecorator implements IComponent {
+class ConcreteComponent implements IComponent {
+    @Override
+    public void do_it() {
+        System.out.println("ConcreteComponent");
+    }
+}
+
+abstract class Decorator implements IComponent {
     protected IComponent component;
 
-    public ADecorator(IComponent component) {
+    public Decorator(IComponent component) {
         this.component = component;
     }
 
@@ -26,18 +38,8 @@ abstract class ADecorator implements IComponent {
     }
 }
 
-class ConcreteComponent implements IComponent {
-    @Override
-    public void do_it() {
-        System.out.println("ConcreteComponent");
-    }
-    public void info() {
-        System.out.println("ConcreteComponent info");
-    }
-}
-
-class Decorator1 extends ADecorator {
-    public Decorator1(IComponent c) {
+class ConcreteDecorator extends Decorator {
+    public ConcreteDecorator(IComponent c) {
         super(c);
     }
 
@@ -45,8 +47,5 @@ class Decorator1 extends ADecorator {
     public void do_it() {
         super.do_it();
         System.out.println("Decorator1");
-    }
-    public void getParameter() {
-        System.out.println("#Decorator1");
     }
 }

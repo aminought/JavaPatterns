@@ -1,5 +1,7 @@
 // Самая простая реализация паттерна SingletonSimple, не работает в многопоточной среде
 
+package com.aminought.patterns.Singleton;
+
 class SingletonSimple {
     private static SingletonSimple instance = null;
     public static SingletonSimple getInstance() {
@@ -13,7 +15,7 @@ class SingletonSimple {
 // Самая простая многопоточная реализация
 class SingletonSimpleThreadsafe {
     private static SingletonSimpleThreadsafe instance = new SingletonSimpleThreadsafe();
-    private SingletonSimpleThreadsafe() {};
+    private SingletonSimpleThreadsafe() {}
     public static SingletonSimpleThreadsafe getInstance() {
         return instance;
     }
@@ -36,7 +38,7 @@ class SingletonThreadsafe {
     }
 }
 
-public class Singleton {
+public class SingletonPattern {
     public static void main(String[] args) {
         SingletonThreadsafe instance = SingletonThreadsafe.getInstance();
     }

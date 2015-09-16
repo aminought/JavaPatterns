@@ -1,6 +1,8 @@
 // Паттерн Наблюдатель используется, если мы имеем объект рассылающий сообщения и не менее одного-двух получателей
 // этих сообщений.
 
+package com.aminought.patterns.Observer;
+
 import java.util.ArrayList;
 
 interface Observable {
@@ -27,9 +29,7 @@ class ConcreteObservable implements Observable {
 
     @Override
     public void notifyObservers() {
-        for(Observer o: observers) {
-            o.handleEvent();
-        }
+        observers.forEach(Observer::handleEvent);
     }
 }
 
