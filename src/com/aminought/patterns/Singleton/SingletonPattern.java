@@ -1,7 +1,8 @@
-// Самая простая реализация паттерна SingletonSimple, не работает в многопоточной среде
-
 package com.aminought.patterns.Singleton;
 
+/**
+ * Самая простая реализация паттерна SingletonSimple, не работает в многопоточной среде
+ */
 class SingletonSimple {
     private static SingletonSimple instance = null;
     public static SingletonSimple getInstance() {
@@ -12,7 +13,9 @@ class SingletonSimple {
     }
 }
 
-// Самая простая многопоточная реализация
+/**
+ * Самая простая многопоточная реализация
+ */
 class SingletonSimpleThreadsafe {
     private static SingletonSimpleThreadsafe instance = new SingletonSimpleThreadsafe();
     private SingletonSimpleThreadsafe() {}
@@ -21,7 +24,9 @@ class SingletonSimpleThreadsafe {
     }
 }
 
-// Используется блокировка с двойной проверкой (Double-Checked Locking)
+/**
+ * Мноопоточная реализация. Используется блокировка с двойной проверкой (Double-Checked Locking)
+ */
 class SingletonThreadsafe {
     private static volatile SingletonThreadsafe instance;
     private SingletonThreadsafe() {};
